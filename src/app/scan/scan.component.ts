@@ -15,6 +15,7 @@ export class ScanComponent implements OnInit, AfterViewInit {
   public qrScanner: QRScanner;
 
   @ViewChild('videoInput') videoInput: ElementRef;
+  @ViewChild('imageInput') imageInput: ElementRef;
 
   constructor(private breakpointObserver: BreakpointObserver) {
     this.globals = new global.Globals(breakpointObserver);
@@ -31,10 +32,27 @@ export class ScanComponent implements OnInit, AfterViewInit {
     if (DetectRTC.hasWebcam) {
       this.qrScanner.start();
       console.log('Has Webcam');
-      console.log('Scanner started')
     } else {
       console.log('No Webcam');
     }
+  }
+
+  processImage(): void {
+    const file: File = this.imageInput.nativeElement.files[0];
+    const reader = new FileReader();
+    let selectedFile: { src: String, file: File };
+
+    reader.addEventListener('load', (event: any) => {
+      selectedFile = {
+        src: event.target.result,
+        file: file
+      }
+
+      QRScanner.scanImage(selectedFile.file).then(result => console.log(result))
+        .catch(error => console.log(error || 'No QR code found.'));
+    });
+
+    reader.readAsDataURL(file);
   }
 
 }
