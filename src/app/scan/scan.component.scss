@@ -1,0 +1,15 @@
+.root {
+  background-color: black;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.fab-container {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.overlap {
+  position: absolute;
+}

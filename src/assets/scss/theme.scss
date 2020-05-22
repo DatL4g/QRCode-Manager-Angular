@@ -1,0 +1,62 @@
+@import '~@angular/material/theming';
+@import 'variables';
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@include mat-core();
+@import '~ngx-bottom-nav/theming';
+
+$QRCodeManager-Poppins: mat-typography-config(
+  $font-family: 'Poppins, "Helvetica Neue", sans-serif'
+);
+
+$QRCodeManager-primary: (
+  50: #ee9ea0,
+  100: $QRCodeManager-lighter-color,
+  200: #e67376,
+  300: #e35d61,
+  400: #df484b,
+  500: $QRCodeManager-default-color,
+  600: #cf2428,
+  700: $QRCodeManager-darker-color,
+  800: #a41d20,
+  900: #8e191c,
+  A100: #f2b4b6,
+  A200: #f6cacb,
+  A400: #f9e0e0,
+  A700: #781517,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  )
+);
+$QRCodeManager-light-accent: mat-palette($mat-red, A200, A100, A400);
+$QRCodeManager-light-palette: mat-palette($QRCodeManager-primary, 500, 100, 700);
+$QRCodeManager-light-theme: mat-light-theme($QRCodeManager-light-palette, $QRCodeManager-light-accent);
+@include angular-material-theme($QRCodeManager-light-theme);
+@include angular-material-typography($QRCodeManager-Poppins);
+@include ngx-bottom-nav-theme($QRCodeManager-light-theme);
+
+
+$QRCodeManager-dark-accent: mat-palette($mat-red, A400, A100, A700);
+$QRCodeManager-dark-palette: mat-palette($QRCodeManager-primary, 500, 100, 700);
+$QRCodeManager-dark-theme: mat-dark-theme($QRCodeManager-dark-palette, $QRCodeManager-dark-accent);
+
+@media screen and (prefers-color-scheme: dark) {
+  @include angular-material-theme($QRCodeManager-dark-theme);
+  @include ngx-bottom-nav-theme($QRCodeManager-dark-theme);
+
+  html, body {
+    background-color: #000000;
+  }
+}

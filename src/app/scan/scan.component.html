@@ -1,0 +1,18 @@
+<div class="max-size flex-box root">
+  <div class="max-size overlap">
+    <video class="max-size" #videoElement></video>
+  </div>
+  <div class="fab-container flex-box overlap">
+    <button mat-fab color="primary"
+            [style.margin-bottom]="globals.getSideMargin()"
+            [style.margin-right]="globals.getSideMargin()">
+      <mat-icon>add_a_photo</mat-icon>
+    </button>
+    <button mat-fab color="primary"
+            [style.margin-bottom]="globals.getSideMargin()"
+            [style.margin-right]="globals.getSideMargin()"
+            routerLink="/create">
+      <mat-icon>create</mat-icon>
+    </button>
+  </div>
+</div>
