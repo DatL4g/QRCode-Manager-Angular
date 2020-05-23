@@ -1,3 +1,21 @@
 <div class="max-size flex-box root">
-  <ngx-bottom-nav [items]="items"></ngx-bottom-nav>
+  <div class="max-size layout-container flex-box">
+    <div class="max-size flex-box">
+      <router-outlet class="overlap"></router-outlet>
+      <div class="max-size fab-container flex-box overlap pushDown">
+        <button mat-fab color="primary"
+                [style.margin-bottom]="globals.getSideMargin()"
+                [style.margin-right]="globals.getSideMargin()">
+          <mat-icon>center_focus_weak</mat-icon>
+        </button>
+        <button mat-fab color="primary"
+                [style.margin-bottom]="globals.getSideMargin()"
+                [style.margin-right]="globals.getSideMargin()"
+                routerLink="/">
+          <mat-icon>camera_alt</mat-icon>
+        </button>
+      </div>
+    </div>
+    <ngx-bottom-nav [items]="items" color="primary"></ngx-bottom-nav>
+  </div>
 </div>

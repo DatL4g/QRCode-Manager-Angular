@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { BottomNavItem } from "ngx-bottom-nav";
+import {Component, OnInit} from '@angular/core';
+import {BottomNavItem} from "ngx-bottom-nav";
+import * as global from "../../environments/global";
+import {BreakpointObserver} from "@angular/cdk/layout";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-create',
@@ -8,13 +11,16 @@ import { BottomNavItem } from "ngx-bottom-nav";
 })
 export class CreateComponent implements OnInit {
 
+  public globals: global.Globals;
+
   items: BottomNavItem[] = [
-    {icon: 'home', label: 'Home', routerLink: ''},
-    {icon: 'search', label: 'Search', routerLink: 'search'},
-    {icon: 'forum', label: 'Forum', routerLink: 'forum'},
+    {icon: 'text_fields', label: 'Text', routerLink: '/create', exact: true},
+    {icon: 'signal_wifi_4_bar_lock', label: 'Network', routerLink: '/create/network', exact: true},
   ];
 
-  constructor() { }
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router, private route: ActivatedRoute) {
+    this.globals = new global.Globals(breakpointObserver);
+  }
 
   ngOnInit(): void {
   }

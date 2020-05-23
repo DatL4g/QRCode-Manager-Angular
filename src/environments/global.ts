@@ -1,9 +1,12 @@
-import {Breakpoints, BreakpointObserver} from "@angular/cdk/layout";
+import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 import {map, shareReplay} from "rxjs/operators";
 import {Observable} from "rxjs";
 
 export const sideMarginMobile: string = '16px';
 export const sideMarginDesktop: string = '32px';
+
+export const actionBarHeightMobile: string = '56px';
+export const actionBarHeightDesktop: string = '64px';
 
 export class Globals {
 
@@ -29,5 +32,9 @@ export class Globals {
 
   public getSideMargin(): string {
     return this.isHandset() ? sideMarginMobile : sideMarginDesktop;
+  }
+
+  public getActionBarHeight(): string {
+    return this.isHandset() ? actionBarHeightMobile : actionBarHeightDesktop;
   }
 }

@@ -31,9 +31,6 @@ export class ScanComponent implements OnInit, AfterViewInit {
 
     if (DetectRTC.hasWebcam) {
       this.qrScanner.start();
-      console.log('Has Webcam');
-    } else {
-      console.log('No Webcam');
     }
   }
 
